@@ -6,7 +6,7 @@ Set up the database with the following properties:
 <br>username: libraryDB
 <br>password: libraryDB
 
-To star the application run the following command inside the application folder.
+To start the application run the following command inside the application folder.
 ```bash
 docker-compose up
 ```
