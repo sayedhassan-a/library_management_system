@@ -1,0 +1,27 @@
+version: '3'
+services:
+  # Spring Boot application
+  library:
+    container_name: library
+    restart: always
+    build: .
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mysql
+  # MySQL database
+  mysql:
+    container_name: mysql
+    image: mysql:latest
+    volumes:
+      - ./data:/data/db
+    environment:
+      MYSQL_ROOT_PASSWORD: ADMIN
+      MYSQL_DATABASE: library_management
+      MYSQL_USER: libraryDB
+      MYSQL_PASSWORD: libraryDB
+    ports:
+      - "3306:3306"
+networks:
+  common_network:
+    driver: bridge
